@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>ratings-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version> <!-- Ensure this is a snapshot version -->
     <name>ratings-service</name>
     <description>Demo project for Spring Boot</description>
     <properties>
@@ -75,6 +75,30 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <url>https://nexus.preview.cb-demos.io/repository/rating-data/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled> <!-- Set to true if deploying snapshots -->
+            </snapshots>
+        </repository>
+        <snapshotRepository>
+            <id>nexus</id>
+            <url>https://nexus.preview.cb-demos.io/repository/rating-data/</url>
+            <releases>
+                <enabled>false</enabled> <!-- Set to false if not deploying releases -->
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </snapshotRepository>
+    </distributionManagement>
     <repositories>
         <repository>
             <id>spring-milestones</id>
@@ -83,3 +107,4 @@
         </repository>
     </repositories>
 </project>
+
